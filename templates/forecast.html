@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gold Price Forecast</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='forecast.css') }}">
+</head>
+
+<body>
+
+ <div class="container">
+        <div class="sidebar">
+        <div class="logo">GOLD <span> PRICE PREDICTION</span></div>
+        <hr class="sidebar-line" />
+        <nav class="nav-links">
+          <a href="/home">HOME</a>
+          <a href="/predict">PREDICT</a>
+          <a href="/forecast">DATASET OVERVIEW</a>
+          <a href="/about">ABOUT</a>
+        </nav>
+      </div>
+
+
+    <div class="main-content">
+        <div class="main-content-section">
+        <h1>TRAINING DATA</h1>
+
+        <!-- Section 1: Show Head and Tail of Trained Data -->
+        <h3>Training Dataset Overview</h3>
+        <div class = "forecast-box">
+        <h3>Start of Dataset</h3>
+        <div>{{ head_data | safe }}</div>
+        
+        <h3>End of Dataset</h3>
+        <div>{{ tail_data | safe }}</div>
+        </div>
+
+        <!-- Section 2: Plot Actual vs Predicted -->
+        <h2>Forecast Graph</h2>
+        <div class="graph-box">
+        <div id="forecast-graph">
+        
+        <script>
+            // Get the JSON data passed from Flask
+            var preds = {{ preds_json|safe }};
+            var trained = {{ trained_json|safe }};
+
+            // Prepare traces
+            var actual_trace = {
+                x: preds.map(row => row.ds),
+                y: trained.map(row => row.USD),
+                mode: 'lines',
+                name: 'Actual Prices', 
+            };
+
+            var predicted_trace = {
+                x: preds.map(row => row.ds),
+                y: preds.map(row => row.yhat),
+                mode: 'lines',
+                name: 'Predicted Prices', 
+            };
+
+            // Combine and plot
+            var data = [actual_trace, predicted_trace];
+
+            var layout = {
+                title: 'Gold Price Actual vs Predicted',
+                xaxis: { title: 'Date', rangeslider: { visible: true }, color: "9d958c" }, // zoom slider
+                yaxis: { title: 'Price' , color: '9d958c'}, // y-axis title
+                legend: { x: 0, y: 1 },
+
+
+                plot_bgcolor: "#121212",
+                paper_bgcolor: "black",                
+            };
+
+            
+
+            Plotly.newPlot('forecast-graph', data, layout);
+        
+        </script>
+        </div>
+        </div>
+    
+    </div>
+    </div>
+</body>
+</html>

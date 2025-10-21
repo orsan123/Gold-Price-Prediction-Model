@@ -1,0 +1,30 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Gold Price Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}" />
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-message">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" placeholder="Enter username" required />
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="Enter password" required />
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>

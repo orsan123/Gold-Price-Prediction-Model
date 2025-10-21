@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About - Gold Price Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}" />
+</head>
+<body>
+  <div class="container">
+      <div class="sidebar">
+        <div class="logo">GOLD <span> PRICE PREDICTION</span></div>
+        <hr class="sidebar-line" />
+        <nav class="nav-links">
+          <a href="/home">HOME</a>
+          <a href="/predict">PREDICT</a>
+          <a href="/forecast">DATASET OVERVIEW</a>
+          <a href="/about">ABOUT</a>
+        </nav>
+      </div>
+
+
+    <div class="main-content">
+      <div class="background"></div>
+      <div class="about-section">
+        <h1>About This Project</h1>
+        <p>
+          This Gold Price Prediction web application utilizes the <strong>Facebook Prophet</strong> forecasting model — a powerful open-source tool developed by Meta for time series analysis and prediction. Prophet is well-known for handling missing data, outliers, and seasonality with ease, making it an excellent choice for financial forecasting.
+        </p>
+        <p>
+          The dataset used for training the model spans a rich historical range from <strong>December 29, 1978</strong> to <strong>April 29, 2024</strong>. This extensive dataset allows the model to capture long-term patterns, trends, and seasonality in gold prices.
+        </p>
+        <p>
+          The predictions generated here are meant for short-term insights, making them especially helpful for individual traders, students, and financial enthusiasts looking to analyze gold market trends.
+        </p>
+        <p>
+          The application is powered by <strong>Flask</strong> on the backend and styled with a professional, minimalist aesthetic using <strong>custom CSS</strong>. The goal is to keep the user experience smooth, informative, and visually appealing.
+        </p>
+        <p>
+          All visualizations and trends are updated using the most recent available data. We aim to continue improving the system with more features such as exportable reports, model comparison tools, and real-time data updates.
+        </p>
+
+        <p>
+            This web application was developed solely for academic purposes as part of a final year project in the field of machine learning and data analytics. It is not intended for commercial use or public deployment. The system showcases the implementation of forecasting techniques using historical data and aims to demonstrate the practical application of data science methodologies in a real-world scenario. While the predictions and features are functional, the web app is designed for educational demonstration only and will not be hosted or maintained beyond the scope of this project.
+        </p>
+        <p class="footer-text">Thank you for using our Gold Price Prediction system.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

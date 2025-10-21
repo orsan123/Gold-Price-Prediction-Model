@@ -1,0 +1,235 @@
+/*------------------------------------nav bar vvvvvv----------------------------------*/
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #d6b36c;
+  line-height: 1.2;
+}
+
+.logo span {
+  display: an inline-block;
+  font-size: 16px;
+  color: #4c4a48;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  list-style: none; /* Use 'none' for cleaner look */
+  padding: 0;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #4c4a48; /* Initial text color to gold-ish */
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: left;
+  width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.nav-links a:hover {
+  background-color: #d6b36c; /* Gold background on hover */
+  color: #000; /* Dark text when hovering */
+  font-weight: bold;
+  padding-left: 25px; /* Slight push on hover */
+  margin-left: -20px; /* Align with the sidebar */
+}
+
+
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 30px 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar-line {
+  width: 300px;
+  height: 0.2px;
+  background-color: #d6b36c;
+  left: 0;
+  margin-top: -15px;
+  margin-left: -20px;
+}
+
+
+
+
+/*------------------------------------navbar ^^^^^^^^----------------------------------*/
+
+.container {
+    display: flex; /* Use flexbox to create a horizontal layout */
+    height: 100vh; /* Full height of the viewport */
+}
+
+.main-content {
+    margin-top: -30px;
+    margin-left: 280px; /* Default margin to accommodate the sidebar */
+    flex: 1; /* Take up the remaining space */
+    padding: 20px; /* Padding inside the main content */
+    position: relative; /* Position relative for the background */
+    transition: margin-left 0.3s ease; /* Smooth transition for margin */
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('/static/images/GOLDBLOCK1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional: keeps image fixed during scroll */
+    background-repeat: no-repeat;
+    background-color: black; /* fallback */
+}
+
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Tint layer */
+    z-index: 0; /* Behind everything */
+    pointer-events: none; /* So users can still interact with everything */
+}
+
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px; /* Default width */
+    height: 100vh;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 30px 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: width 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    z-index: 2;
+    position: relative;
+    color: #d6b36c;
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero-section h1 {
+    font-size: 36px;
+    color: #d6b36c;
+}
+
+.hero-section p {
+    font-size: 18px;
+    margin: 20px 0;
+    color: #ccc;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #d6b36c;
+    color: #000;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #000000;
+    color: #d6b36c;
+    transition: background-color 1s ease;
+}
+
+
+
+/* Features Section */
+.features-section {
+    z-index: 2;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 85px;
+    padding: 30px 40px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+.feature-box {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    padding: 15px;
+    color: #f0e7d3;
+    transition: background-color 0.7s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.feature-box h2 {
+    font-size: 24px;
+    color: #d6b36c;
+    margin-bottom: 10px;
+}
+
+
+.feature-box p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.feature-box:hover {
+    background-color: #d6b36c;
+}
+
+.feature-box:hover h2,
+.feature-box:hover p {
+    color: #000;
+}
+
+
+
+
+
+

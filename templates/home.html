@@ -1,0 +1,55 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gold Price Prediction - Home</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="background-overlay"></div>
+    <div class="container">
+      <div class="sidebar">
+        <div class="logo">GOLD <span> PRICE PREDICTION</span></div>
+        <hr class="sidebar-line" />
+        <nav class="nav-links">
+          <a href="/home">HOME</a>
+          <a href="/predict">PREDICT</a>
+          <a href="/forecast">DATASET OVERVIEW</a>
+          <a href="/about">ABOUT</a>
+        </nav>
+      </div>
+
+      <div class="main-content">
+        <div class="hero-section">
+          <h1>Welcome to Gold Price Prediction</h1>
+          <p>
+            Get Facebook Prophet predicted gold price forecasts in just a few
+            clicks.
+          </p>
+          <a href="/predict" class="cta-button">Start Forecasting</a>
+        </div>
+
+        <div class="features-section">
+          <div class="feature-box">
+            <h2>📊 Intelligent Forecasts</h2>
+            <p>
+              Our machine learning models deliver high-accuracy predictions.
+            </p>
+          </div>
+          <div class="feature-box">
+            <h2>🕰️ Time-Based Insights</h2>
+            <p>Understand short and mid-term trends clearly and easily.</p>
+          </div>
+          <div class="feature-box">
+            <h2>📥 Easy to Use</h2>
+            <p>Use updated built-in dataset to generate insights instantly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

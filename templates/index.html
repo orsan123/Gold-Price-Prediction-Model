@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gold Price Predictor</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+    <div class="sidebar">
+        <div class="logo">GOLD <span> PRICE PREDICTION</span></div>
+        <hr class="sidebar-line" />
+        <nav class="nav-links">
+          <a href="/home">HOME</a>
+          <a href="/predict">PREDICT</a>
+          <a href="/forecast">DATASET OVERVIEW</a>
+          <a href="/about">ABOUT</a>
+          
+        </nav>
+      </div>
+      <div class="main-content">
+        <div class="prediction-box">
+          <h1>📉 Predict Future Gold Prices</h1>
+          <p>
+            Select a date to forecast the gold price based on past market
+            trends.
+          </p>
+
+          <form method="POST" class="prediction-form">
+            <label for="date">Select a Date:</label>
+            <input
+              type="date"
+              name="date"
+              id="date"
+              min="{{ min_date }}"
+              max="{{ max_date }}"
+              required
+            />
+            <button type="submit">Get Prediction</button>
+          </form>
+
+          {% if selected_date %}
+          <div class="result">
+            <h3>Approximate Prediction for {{ selected_date.date() }}:</h3>
+
+            <p><strong>{{ prediction }}</strong> USD per troy ounce of gold</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
