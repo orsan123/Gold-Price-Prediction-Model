@@ -3,14 +3,14 @@ import pandas as pd
 import joblib
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Needed for flashing messages
+app.secret_key = 'your_secret_key'  
 
-# Load model and forecast
-model = joblib.load('prophet_model.pkl')
+
+model = joblib.load('prophet_model.pkl')  #Loading the model and forecast data
 preds = pd.read_csv('forecast.csv')
 preds['ds'] = pd.to_datetime(preds['ds'])
 
-# Login route (GET = show form, POST = validate form)
+
 @app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
