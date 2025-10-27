@@ -6,8 +6,8 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'  
 
 
-model = joblib.load('prophet_model.pkl')  #Loading the model and forecast data
-preds = pd.read_csv('forecast.csv')
+model = joblib.load(r"C:\Users\pc\OneDrive\Documents\Career Based Projects\Gold_Price_Prediction\model\prophet_model.pkl")  #Loading the model and forecast data
+preds = pd.read_csv(r"C:\Users\pc\OneDrive\Documents\Career Based Projects\Gold_Price_Prediction\data\processed\forecast.csv")
 preds['ds'] = pd.to_datetime(preds['ds'])
 
 
@@ -21,12 +21,12 @@ def login():
             return redirect(url_for("home"))
         else:
             flash("Username or password is wrong. Please try again.")
-            return render_template("login.html")
-    return render_template("login.html")
+            return render_template(r"C:\Users\pc\OneDrive\Documents\Career Based Projects\Gold_Price_Prediction\templates\login.html")
+    return render_template(r"C:\Users\pc\OneDrive\Documents\Career Based Projects\Gold_Price_Prediction\templates\login.html")
 
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    return render_template(r"C:\Users\pc\OneDrive\Documents\Career Based Projects\Gold_Price_Prediction\templates\home.html")
 
 @app.route("/predict", methods=["GET", "POST"])
 def index():
@@ -45,12 +45,12 @@ def index():
         else:
             prediction = "No prediction available for this date."
 
-    return render_template("index.html", prediction=prediction, selected_date=selected_date,
+    return render_template(r"C:\Users\pc\OneDrive\Documents\Career Based Projects\Gold_Price_Prediction\templates\index.html", prediction=prediction, selected_date=selected_date,
                            min_date=min_date, max_date=max_date)
 
 @app.route("/forecast")
 def forecast():
-    trained_data = pd.read_csv(r"C:\Users\pc\OneDrive\Desktop\Final year project\prophet_gold_price\gold_and_usdx.csv")
+    trained_data = pd.read_csv(r"C:\Users\pc\OneDrive\Documents\Career Based Projects\Gold_Price_Prediction\data\raw\gold_and_usdx.csv")
 
     head_data = trained_data.head(5).to_html(classes='table table-striped', index=False)
     tail_data = trained_data.tail(5).to_html(classes='table table-striped', index=False)
@@ -58,7 +58,7 @@ def forecast():
     preds_json = preds.to_json(orient='records')
     trained_json = trained_data.to_json(orient='records')
 
-    return render_template('forecast.html',
+    return render_template(r'C:\Users\pc\OneDrive\Documents\Career Based Projects\Gold_Price_Prediction\data\processed\forecast.csv',
                            head_data=head_data,
                            tail_data=tail_data,
                            preds_json=preds_json,
@@ -66,7 +66,7 @@ def forecast():
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template(r"C:\Users\pc\OneDrive\Documents\Career Based Projects\Gold_Price_Prediction\templates\about.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
